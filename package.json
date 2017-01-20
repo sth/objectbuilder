@@ -1,0 +1,20 @@
+{
+  "name": "objectbuilder",
+  "version": "1.0.0",
+  "description": "Combine and extend objects containing arrays and subobjects",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register",
+    "build": "babel src --out-dir lib",
+    "prepublish": "npm run build"
+  },
+  "author": "Stephan Hohe <sth.dev@tejp.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-register": "^6.22.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {}
+}
