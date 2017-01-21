@@ -10,6 +10,7 @@
   },
   "author": "Stephan Hohe <sth.dev@tejp.de>",
   "license": "MIT",
+  "repository": "sth/objectbuilder",
   "devDependencies": {
     "babel-cli": "^6.22.2",
     "babel-preset-es2015": "^6.22.0",
