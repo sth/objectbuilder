@@ -1,6 +1,6 @@
 {
   "name": "objectbuilder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Combine and extend objects containing arrays and subobjects",
   "keywords": ["objects", "configuration"],
   "main": "lib/index.js",
