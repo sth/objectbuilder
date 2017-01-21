@@ -1,8 +1,8 @@
 {
   "name": "objectbuilder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Combine and extend objects containing arrays and subobjects",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register",
     "build": "babel src --out-dir lib",
