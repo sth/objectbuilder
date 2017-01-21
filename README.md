@@ -69,7 +69,7 @@ yarn add objectbuilder
 `build()` is the main function, and it simply combines objects by copying
 all the properties to a new object:
 
-    var r = B.build(
+    const r = B.build(
          {a: 1},
          {b: 2},
          {c: 3}
@@ -120,7 +120,7 @@ The same situation can also occur when properties are arrays. By default
 `array()` to declare that it should extend existing arrays
 instead of overwriting:
 
-    var r = B.build(
+    const r = B.build(
        {a: [1,2]},
        {a: B.array([3,4])}
     );
@@ -148,7 +148,7 @@ to have a string that gets appended to an existing string:
        config,
        {name: appending("-debug")}
     );
-    assert.deepEqual(r, {name: "someproject-debug"});
+    assert.deepEqual(debugconfig, {name: "someproject-debug"});
 
 The function given to the `Modifier` constructor is called whenever `build()`
 needs to apply the new property to an object it is building. It gets the old
