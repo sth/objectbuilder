@@ -10,7 +10,7 @@ export function assign(target, ...objs) {
 		Object.keys(obj).forEach(function(key) {
 			const value = obj[key];
 			if (value instanceof Modifier) {
-				// Assign subproperties
+				// Modify existing value
 				target[key] = value.exec(target[key]);
 			}
 			else {
