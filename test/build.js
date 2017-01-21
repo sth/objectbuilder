@@ -1,5 +1,5 @@
 
-import * as B from '../src/index.js'
+import * as B from '../src'
 
 import assert from 'assert';
 
