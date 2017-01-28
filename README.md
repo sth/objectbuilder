@@ -35,7 +35,7 @@ const debugconfig = B.build(config, {
       debugging: true
    }),
 
-   // To append to arrays there is an äquivalent `array()` function
+   // To append to arrays there is an equivalent `array()` function
    plugins: B.array(['linter'])
 });
 ```
