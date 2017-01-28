@@ -253,9 +253,9 @@ describe('array()', function() {
 });
 
 
-describe('array.extend()', function() {
+describe('array.append()', function() {
 	it("should be identical to main array() function", function() {
-		assert.strictEqual(B.array, B.array.extend);
+		assert.strictEqual(B.array.append, B.array);
 	});
 });
 

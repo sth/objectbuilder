@@ -26,17 +26,17 @@ export function build(...objs) {
 	return assign({}, ...objs)
 }
 
-function extendObj(...objs) {
+function objExtend(...objs) {
 	return new Modifier(function(obj) {
 		if (obj === undefined)
 			obj = {};
 		return build(obj, ...objs);
 	});
 }
-export const object = extendObj;
-object.extend = extendObj;
+export const object = objExtend;
+object.extend = objExtend;
 
-function extendArr(...arrays) {
+function arrAppend(...arrays) {
 	return new Modifier(function(arr) {
 		if (arr === undefined)
 			arr = [];
@@ -46,8 +46,9 @@ function extendArr(...arrays) {
 		return arr;
 	});
 }
-export const array = extendArr;
-array.extend = extendArr;
+
+export const array = arrAppend;
+array.append = arrAppend;
 
 array.prepend = function(...arrays) {
 	return new Modifier(function(arr) {
