@@ -69,7 +69,7 @@ yarn add objectbuilder
 ```
 
 
-## API
+## Main API
 
 ### Combining objects: `build(obj1, obj2, ...)`
 
@@ -125,6 +125,10 @@ assert.deepEqual(r,
 You can nest `object()` declarations and specify exactly which properties
 should overwrite or extend existing properties.
 
+#### `object.extend(props, ...)`
+
+This is just a different name for the `object()` function that describes
+its functionality better.
 
 ### Combining arrays: `array(items, ...)`
 
@@ -142,6 +146,17 @@ assert.deepEqual(r,
    {a: [1,2,3,4]}
 );
 ```
+
+#### `array.append(items, ...)`
+
+This is just a different name for the `array()` function that describes
+its functionality better.
+
+#### `array.prepend(items, ...)`
+
+Extends existing arrays like `array()` or `array.append()`, but inserts
+the new elements at the beginning instead of the end.
+
 
 ## Customization
 
