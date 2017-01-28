@@ -3,7 +3,7 @@ import * as B from '../src'
 
 import assert from 'assert';
 
-describe('assign()', function() {
+describe('helper function assign()', function() {
 	it("should assign properties", function() {
 		var o = {};
 		B.assign(o, {a: 1, b: 2});
@@ -48,6 +48,7 @@ describe('assign()', function() {
 	});
 
 });
+
 
 describe('build()', function() {
 	it("should return combined argument", function() {
@@ -95,6 +96,7 @@ describe('build()', function() {
 		assert.deepEqual(arr2, [2]);
 	});
 });
+
 
 describe('object()', function() {
 	it("should create subobjects", function() {
@@ -164,14 +166,15 @@ describe('object()', function() {
 		);
 		assert.deepEqual(r, {a: {as: 0, bs: 1, cs: 2, ds: 3}});
 	});
+});
 
 
-	describe('extend()', function() {
-		it("should be equal to main object() function", function() {
-			assert.strictEqual(B.object, B.object.extend);
-		});
+describe('object.extend()', function() {
+	it("should be equal to main object() function", function() {
+		assert.strictEqual(B.object, B.object.extend);
 	});
 });
+
 
 describe('array()', function() {
 	it("should create array properties", function() {
@@ -247,12 +250,89 @@ describe('array()', function() {
 		);
 		assert.deepEqual(r, {a: [0, 1, 2, 3]});
 	});
+});
 
 
-	describe('extend()', function() {
-		it("should be equal to main array() function", function() {
-			assert.strictEqual(B.array, B.array.extend);
+describe('array.extend()', function() {
+	it("should be identical to main array() function", function() {
+		assert.strictEqual(B.array, B.array.extend);
+	});
+});
+
+
+describe('array.prepend()', function() {
+	it("should create array properties", function() {
+		var r = B.build({
+			a: B.array.prepend([1])
 		});
+		assert.deepEqual(r, {a: [1]});
+	});
+
+	it("should append to existing arrays", function() {
+		var r = B.build(
+			{ a: [1,2] },
+			{ a: B.array.prepend([3,4]) }
+		);
+		assert.deepEqual(r, {a: [3,4,1,2]});
+	});
+
+	it("should not modify original array objects", function() {
+		var o = [1,2];
+		var r = B.build(
+			{ a: o },
+			{ a: B.array.prepend([3,4]) }
+		);
+		assert.deepEqual(o, [1,2]);
+	});
+
+	it("should append to existing multiple times", function() {
+		var r = B.build(
+			{ a: [1,2] },
+			{ a: B.array.prepend([3,4]) },
+			{ a: B.array.prepend([5,6]) }
+		);
+		assert.deepEqual(r, {a: [5,6,3,4,1,2]});
+	});
+
+	it("should be overwritable by later arguments", function() {
+		var r = B.build(
+			{ a: [1,2] },
+			{ a: B.array.prepend([3,4]) },
+			{ a: [5,6] }
+		);
+		assert.deepEqual(r, {a: [5,6]});
+	});
+
+	it("should create empty array without arguments", function() {
+		var r = B.build(
+			{},
+			{ a: B.array.prepend() }
+		);
+		assert.deepEqual(r, {a: []});
+	});
+
+	it("should append nothing without arguments", function() {
+		var r = B.build(
+			{ a: [1] },
+			{ a: B.array.prepend() }
+		);
+		assert.deepEqual(r, {a: [1]});
+	});
+
+	it("should combine multiple arguments", function() {
+		var r = B.build(
+			{},
+			{ a: B.array.prepend([1], [2], [3]) }
+		);
+		assert.deepEqual(r, {a: [3, 2, 1]});
+	});
+
+	it("should append multiple arguments", function() {
+		var r = B.build(
+			{ a: [0] },
+			{ a: B.array.prepend([1], [2], [3]) }
+		);
+		assert.deepEqual(r, {a: [3, 2, 1, 0]});
 	});
 });
 

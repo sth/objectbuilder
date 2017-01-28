@@ -49,3 +49,14 @@ function extendArr(...arrays) {
 export const array = extendArr;
 array.extend = extendArr;
 
+array.prepend = function(...arrays) {
+	return new Modifier(function(arr) {
+		if (arr === undefined)
+			arr = [];
+		arrays.forEach(values => {
+			arr = values.concat(...arr);
+		});
+		return arr;
+	});
+}
+
