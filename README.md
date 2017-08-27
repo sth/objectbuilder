@@ -9,7 +9,7 @@ Configuration of npm modules is often done by creating fairly complicated
 nested JavaScript object literals:
 
 ```javascript
-const config = {
+const someconfig = {
    name: "sampleproject",
    compiler: {
       input: './source',
@@ -20,12 +20,12 @@ const config = {
 ```
 It is useful to have a flexible way to create modified versions of such
 objects. For example we could create specialized configurations for
-production and debugging. This package provides such a flexible way:
+production and debugging. This package provides a flexible way to do so:
 
 ```javascript
 import * as B from 'objectbuilder';
 
-const debugconfig = B.build(config, {
+const debugconfig = B.build(someconfig, {
    // By default, new properties overwrite existing ones
    name: "sampleproject-debug",
 
@@ -87,7 +87,7 @@ assert.deepEqual(r,
 );
 ```
 
-By default, `build()` does a simple "shallow" copy, where properties on
+By default, `build()` does a simple "shallow" assignment, where properties on
 later objects overwrite earlier objects, even if they are themselves
 objects:
 
@@ -108,7 +108,7 @@ of the second object.
 
 ### Combining subobjects: `object(props, ...)`
 
-If a subobject shouldn't overwrite existing properties, but instead extend it,
+If a subobject shouldn't overwrite existing properties, but instead extend them,
 this can be declared with the `object()` function. It tells `build()` to
 combine the new properties with exisiting ones (if any):
 
@@ -160,12 +160,17 @@ the new elements at the beginning instead of the end.
 
 ## Customization
 
+`objectbuilder` can easily be customized if you want to modify you objects in
+different ways.
+
+### Custom handling of properties: `Modifier()`
+
 The modules exports a `Modifier` class that can be used to adjust the handling
 of properties by `build()` to your liking. For example, lets say you want
 to have a string that gets appended to an existing string:
 
 ```javascript
-function appending(tail) {
+function string_append(tail) {
    return new B.Modifier(function(orig) {
       if (orig === undefined)
          orig = "";
@@ -173,10 +178,10 @@ function appending(tail) {
    });
 }
 
-const config = {name: "someproject"};
+const someconfig = {name: "someproject"};
 const debugconfig = B.build(
-   config,
-   {name: appending("-debug")}
+   someconfig,
+   {name: string_append("-debug")}
 );
 assert.deepEqual(debugconfig, {name: "someproject-debug"});
 ```

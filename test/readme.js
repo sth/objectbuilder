@@ -7,7 +7,7 @@ import assert from 'assert';
 describe("Examples from Readme file", function() {
 	describe("Use case", function() {
 		it("build the correct debugconfig", function() {
-			const config = {
+			const someconfig = {
 				 name: "sampleproject",
 				 compiler: {
 					 input: './source',
@@ -16,7 +16,7 @@ describe("Examples from Readme file", function() {
 				 plugins: ['errorlog']
 			};
 
-			const debugconfig = B.build(config, {
+			const debugconfig = B.build(someconfig, {
 				// By default, new properties overwrite existing ones
 				name: "sampleproject-debug",
 			
@@ -91,7 +91,7 @@ describe("Examples from Readme file", function() {
 
 		describe("customization", function() {
 			it("combines strings", function() {
-				function appending(tail) {
+				function string_append(tail) {
 					return new B.Modifier(function(orig) {
 						if (orig === undefined)
 							orig = "";
@@ -99,10 +99,10 @@ describe("Examples from Readme file", function() {
 					});
 				}
 				
-				const config = {name: "someproject"};
+				const someconfig = {name: "someproject"};
 				const debugconfig = B.build(
-					config,
-					{name: appending("-debug")}
+					someconfig,
+					{name: string_append("-debug")}
 				);
 				assert.deepEqual(debugconfig, {name: "someproject-debug"});
 			});
