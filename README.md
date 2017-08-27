@@ -191,3 +191,28 @@ needs to apply the new property to an object it is building. It gets the old
 value of the property as an parameter and is expected to return the new
 value.
 
+### Modifying existing properties
+
+Instead of *combining* existing properties with new values, `objectbuilder`'s
+customization can also be used create modifications of the existing values.
+
+For example, you can create a `Modifier` that converts existing property values
+to upper case:
+
+```
+function uppercase() {
+   return new B.Modifier(function(orig) {
+      if (orig === undefined)
+         return undefined;
+      return orig.toUpperCase();
+   });
+}
+
+const original = {name: "someproject"};
+const modified = B.build(
+   original,
+   {name: uppercase()}
+);
+assert.deepEqual(modified, {name: "SOMEPROJECT"});
+```
+

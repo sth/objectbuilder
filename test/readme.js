@@ -106,6 +106,23 @@ describe("Examples from Readme file", function() {
 				);
 				assert.deepEqual(debugconfig, {name: "someproject-debug"});
 			});
+			
+			it("converts to uppercase", function() {
+				function uppercase() {
+					return new B.Modifier(function(orig) {
+						if (orig === undefined)
+							return undefined;
+						return orig.toUpperCase();
+					});
+				}
+
+				const original = {name: "someproject"};
+				const modified = B.build(
+					original,
+					{name: uppercase()}
+				);
+				assert.deepEqual(modified, {name: "SOMEPROJECT"});
+			});
 		});
 	});
 });
