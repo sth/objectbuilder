@@ -6,7 +6,7 @@ import assert from 'assert';
 
 describe("Examples from Readme file", function() {
 	describe("Use case", function() {
-		it("build the correct debugconfig", function() {
+		it("builds the correct debugconfig", function() {
 			const someconfig = {
 				 name: "sampleproject",
 				 compiler: {
@@ -21,12 +21,12 @@ describe("Examples from Readme file", function() {
 				name: "sampleproject-debug",
 			
 				// If we want to extend an object instead of overwriting,
-				// we can declare it with the object() function
+				// we can declare it with the `object()` function
 				compiler: B.object({
 					debugging: true
 				}),
 				
-				// To append to arrays there is an äquivalent `array()` function
+				// To append to arrays there is an equivalent `array()` function
 				plugins: B.array(['linter'])
 			});
 		

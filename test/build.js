@@ -41,12 +41,11 @@ describe('helper function assign()', function() {
 		assert.strictEqual(o.a, so);
 	});
 
-	it("should handle missing extension objects", function() {
+	it("should work without any extension objects", function() {
 		var o = {a: 1};
 		B.assign(o);
 		assert.deepEqual(o, {a: 1});
 	});
-
 });
 
 
@@ -73,7 +72,7 @@ describe('build()', function() {
 		assert.deepEqual(r, {});
 	});
 
-	it("should copy object and arrays as references", function() {
+	it("should copy objects and arrays as references", function() {
 		var obj = {a: 1};
 		var arr = [1];
 		var o = { A: obj, B: arr };
@@ -82,7 +81,7 @@ describe('build()', function() {
 		assert.strictEqual(r.B, arr);
 	});
 
-	it("should copy overwrite objects and arrays unchanged", function() {
+	it("should keep overwriten objects and arrays unchanged", function() {
 		var obj1 = {a: 1}, obj2 = { b: 2 };
 		var arr1 = [1], arr2 = [2];
 		var o = { A: obj1, B: arr1 };
@@ -148,7 +147,7 @@ describe('object()', function() {
 			{ a: {as: 1} },
 			{ a: B.object() }
 		);
-		assert.deepEqual(r, {a: {as: 1 }});
+		assert.deepEqual(r, {a: {as: 1}});
 	});
 
 	it("should combine multiple arguments", function() {
@@ -165,6 +164,14 @@ describe('object()', function() {
 			{ a: B.object({bs: 1}, {cs: 2}, {ds: 3}) }
 		);
 		assert.deepEqual(r, {a: {as: 0, bs: 1, cs: 2, ds: 3}});
+	});
+
+	it("should remove `remove` properties", function() {
+		var r = B.build(
+			{a: 1, b: 2},
+			{b: B.remove}
+		);
+		assert.deepEqual(r, {a: 1});
 	});
 });
 
