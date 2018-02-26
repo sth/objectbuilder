@@ -8,6 +8,7 @@
   ],
   "main": "lib/index.js",
   "scripts": {
+    "lint": "eslint src/",
     "test": "mocha --compilers js:babel-register",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build"
@@ -19,6 +20,7 @@
     "babel-cli": "^6.22.2",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.22.0",
+    "eslint": "^4.18.1",
     "mocha": "^3.2.0"
   },
   "dependencies": {}
