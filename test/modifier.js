@@ -28,23 +28,29 @@ describe("Modifier()", function() {
 	});
 
 	it("should be called with the existing property value", function() {
+		let called = false;
 		const mod = new B.Modifier(a => {
+			called = true;
 			assert.equal(a, 1);
 		});
 		const r = B.build(
 			{a: 1},
 			{a: mod}
 		);
+		assert(called);
 	});
 
 	it("should be called without a value on non-existing properties", function() {
+		let called = false;
 		const mod = new B.Modifier(a => {
+			called = true;
 			assert.strictEqual(a, undefined);
 		});
 		const r = B.build(
 			{},
 			{a: mod}
 		);
+		assert(called);
 	});
 });
 
