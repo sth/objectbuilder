@@ -5,13 +5,27 @@ export class Modifier {
 	}
 }
 
+export function modify(action) {
+	return new Modifier(action);
+}
+
+export function isModifier(value) {
+	return (value instanceof Modifier);
+}
+
+export const remove = {};
+
+
 export function assign(target, ...objs) {
 	objs.forEach(function(obj) {
 		Object.keys(obj).forEach(function(key) {
 			const value = obj[key];
-			if (value instanceof Modifier) {
+			if (isModifier(value)) {
 				// Modify existing value
 				target[key] = value.exec(target[key]);
+			}
+			else if (value === remove) {
+				delete target[key];
 			}
 			else {
 				// Assign value itself
@@ -23,41 +37,62 @@ export function assign(target, ...objs) {
 }
 
 export function build(...objs) {
-	return assign({}, ...objs)
+	return assign({}, ...objs);
 }
 
-function objExtend(...objs) {
-	return new Modifier(function(obj) {
+
+export function setdefault(default_value) {
+	return modify(value => {
+		if (value === undefined) {
+			return default_value;
+		}
+		else {
+			return value;
+		}
+	});
+}
+
+export const required = modify(value => {
+	if (value === undefined) {
+		throw new Error("expected value missing");
+	}
+	return value;
+});
+
+
+export function object(...objs) {
+	return modify(obj => {
 		if (obj === undefined)
 			obj = {};
 		return build(obj, ...objs);
 	});
 }
-export const object = objExtend;
-object.extend = objExtend;
+object.extend = object;
 
-function arrAppend(...arrays) {
-	return new Modifier(function(arr) {
+export function array_append(...arrays) {
+	return modify(arr => {
 		if (arr === undefined)
 			arr = [];
 		arrays.forEach(values => {
-			arr = arr.concat(...values);
+			arr = arr.concat(values);
 		});
 		return arr;
 	});
 }
 
-export const array = arrAppend;
-array.append = arrAppend;
-
-array.prepend = function(...arrays) {
+export function array_prepend(...arrays) {
 	return new Modifier(function(arr) {
 		if (arr === undefined)
 			arr = [];
 		arrays.forEach(values => {
-			arr = values.concat(...arr);
+			arr = values.concat(arr);
 		});
 		return arr;
 	});
 }
+
+
+export const array = array_append;
+array.append = array_append;
+array.prepend = array_prepend;
 
