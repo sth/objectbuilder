@@ -30,7 +30,7 @@ const debugconfig = B.build(someconfig, {
    name: "sampleproject-debug",
 
    // If we want to extend an object instead of overwriting,
-   // we can declare it with the object() function
+   // we can declare it with the `object()` function
    compiler: B.object({
       debugging: true
    }),
@@ -87,8 +87,10 @@ assert.deepEqual(r,
 );
 ```
 
-By default, `build()` does a simple "shallow" assignment, where properties on
-later objects overwrite earlier objects, even if they are themselves
+`build()` always creates a new object and doesn't modify the input objects.
+
+By default, `build()` does a simple "shallow" assignment, where property values on
+later objects overwrite those on earlier objects, even if they are themselves
 objects:
 
 ```javascript
@@ -101,16 +103,15 @@ assert.deepEqual(r,
 );
 ```
 
-So the `a` property of the first object got overwritten by the `a` property
-of the second object.
-
-`build()` always creates a new object and doesn't modify the input objects.
+The result object contains the `a` property from the second parameter given to
+`build()`. The `a` property for the first parameter got copied to the result
+but then was overwritten by the `a` property of the second parameter.
 
 ### Combining subobjects: `object(props, ...)`
 
 If a subobject shouldn't overwrite existing properties, but instead extend them,
 this can be declared with the `object()` function. It tells `build()` to
-combine the new properties with exisiting ones (if any):
+combine the new properties with existing ones (if any):
 
 ```javascript
 const r = B.build(
@@ -124,6 +125,22 @@ assert.deepEqual(r,
 
 You can nest `object()` declarations and specify exactly which properties
 should overwrite or extend existing properties.
+
+#### Removing properties
+
+`objectbuilder` exports a special constant `remove`, which can be used to
+mark properties that should be removed from the combined result.
+
+```javascript
+const r = B.build(
+   {a: 1, b: 2},
+   {b: B.remove}
+);
+assert.deepEqual(r,
+   {a: 1}
+);
+```
+
 
 #### `object.extend(props, ...)`
 
@@ -147,12 +164,12 @@ assert.deepEqual(r,
 );
 ```
 
-#### `array.append(items, ...)`
+#### `array_append(items, ...)`
 
 This is just a different name for the `array()` function that describes
 its functionality better.
 
-#### `array.prepend(items, ...)`
+#### `array_prepend(items, ...)`
 
 Extends existing arrays like `array()` or `array.append()`, but inserts
 the new elements at the beginning instead of the end.
@@ -163,15 +180,15 @@ the new elements at the beginning instead of the end.
 `objectbuilder` can easily be customized if you want to modify you objects in
 different ways.
 
-### Custom handling of properties: `Modifier()`
+### Custom handling of properties: `modify()`
 
-The modules exports a `Modifier` class that can be used to adjust the handling
+The modules exports a `modify()` function that can be used to adjust the handling
 of properties by `build()` to your liking. For example, lets say you want
 to have a string that gets appended to an existing string:
 
 ```javascript
 function string_append(tail) {
-   return new B.Modifier(function(orig) {
+   return B.modify(function(orig) {
       if (orig === undefined)
          orig = "";
       return orig + tail;
@@ -186,7 +203,7 @@ const debugconfig = B.build(
 assert.deepEqual(debugconfig, {name: "someproject-debug"});
 ```
 
-The function given to the `Modifier` constructor is called whenever `build()`
+The function given to `modify()` is called whenever `build()`
 needs to apply the new property to an object it is building. It gets the old
 value of the property as an parameter and is expected to return the new
 value.
@@ -196,12 +213,12 @@ value.
 Instead of *combining* existing properties with new values, `objectbuilder`'s
 customization can also be used create modifications of the existing values.
 
-For example, you can create a `Modifier` that converts existing property values
+For example, you can create a modifier that converts existing property values
 to upper case:
 
-```
+```javascript
 function uppercase() {
-   return new B.Modifier(function(orig) {
+   return B.modify(function(orig) {
       if (orig === undefined)
          return undefined;
       return orig.toUpperCase();

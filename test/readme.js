@@ -75,6 +75,16 @@ describe("Examples from Readme file", function() {
 					{a: {x: 1, y: 2}}
 				);
 			});
+
+			it("removes properties with `remove`", function() {
+				const r = B.build(
+					{a: 1, b: 2},
+					{b: B.remove}
+				);
+				assert.deepEqual(r,
+					{a: 1}
+				);
+			});
 		});
 
 		describe("array()", function() {
@@ -92,13 +102,13 @@ describe("Examples from Readme file", function() {
 		describe("customization", function() {
 			it("combines strings", function() {
 				function string_append(tail) {
-					return new B.Modifier(function(orig) {
+					return B.modify(function(orig) {
 						if (orig === undefined)
 							orig = "";
 						return orig + tail;
 					});
 				}
-				
+
 				const someconfig = {name: "someproject"};
 				const debugconfig = B.build(
 					someconfig,
@@ -109,7 +119,7 @@ describe("Examples from Readme file", function() {
 			
 			it("converts to uppercase", function() {
 				function uppercase() {
-					return new B.Modifier(function(orig) {
+					return B.modify(function(orig) {
 						if (orig === undefined)
 							return undefined;
 						return orig.toUpperCase();
