@@ -1,6 +1,6 @@
 {
   "name": "objectbuilder",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Combine and extend objects containing arrays and subobjects",
   "keywords": [
     "objects",
