@@ -1,9 +1,11 @@
 # Changelog
 
-<a name="master"></a>
-## [master](https://github.com/sth/objectbuilder/tree/master), ([compare to v1.4.0](https://github.com/sth/objectbuilder/compare/v1.4.0...master))
-- Update devDependencies (including some vulnerabilities)
-- Test on node v13
+<a name="v1.4.1"></a>
+## [v1.4.1](https://github.com/sth/objectbuilder/tree/v1.4.1), 2021-01-14 ([compare to v1.4.0](https://github.com/sth/objectbuilder/compare/v1.4.0...v1.4.1))
+
+* **Improvement**: Add changelog file
+* **Improvement**: Update dev dependencies
+* **Improvement**: Test on more node versions
 
 <a name="v1.4.0"></a>
 ## [v1.4.0](https://github.com/sth/karma-summary-reporter/tree/v1.4.0), 2019-09-09 ([compare to v1.3.0](https://github.com/sth/karma-summary-reporter/compare/v1.3.0...v1.4.0))
