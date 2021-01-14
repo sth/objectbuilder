@@ -17,11 +17,11 @@
   "license": "MIT",
   "repository": "sth/objectbuilder",
   "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.22.0",
-    "eslint": "^6.1.0",
-    "mocha": "^7.1.1"
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "eslint": "^7.17.0",
+    "mocha": "^8.0.0"
   },
   "dependencies": {}
 }
