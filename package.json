@@ -21,11 +21,8 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
-    "eslint": "^6.0.0",
-    "mocha": "^7.0.0"
+    "eslint": "^7.0.0",
+    "mocha": "^8.0.0"
   },
-  "dependencies": {},
-  "resolutions": {
-    "inquirer": "7.2.0"
-  }
+  "dependencies": {}
 }
