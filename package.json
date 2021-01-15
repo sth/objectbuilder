@@ -9,7 +9,7 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "eslint src/",
-    "test": "mocha --require babel-core/register",
+    "test": "mocha --require @babel/register",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build"
   },
@@ -20,6 +20,7 @@
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
     "eslint": "^7.17.0",
     "mocha": "^8.0.0"
   },
