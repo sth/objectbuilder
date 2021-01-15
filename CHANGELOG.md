@@ -1,5 +1,11 @@
 # Changelog
 
+<a name="v2.0.0"></a>
+## [v2.0.0](https://github.com/sth/objectbuilder/tree/v2.0.0), 2021-01-15 ([compare to v1.4.2](https://github.com/sth/objectbuilder/compare/v1.4.2...v2.0.0))
+
+* **Improvement (Breaking change)**: Upgrade dependencies (Now requires node >= v10)
+* **Improvement**: Fix npm warning about mismatched binaries ([02546c8](https://github.com/sth/objectbuilder/commit/02546c87ae551c4acb82aa5c021139d772a1a2ca))
+
 <a name="v1.4.2"></a>
 ## [v1.4.2](https://github.com/sth/objectbuilder/tree/v1.4.2), 2021-01-15 ([compare to v1.4.1](https://github.com/sth/objectbuilder/compare/v1.4.1...v1.4.2))
 
