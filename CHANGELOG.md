@@ -1,5 +1,11 @@
 # Changelog
 
+<a name="v1.4.2"></a>
+## [v1.4.2](https://github.com/sth/objectbuilder/tree/v1.4.2), 2021-01-15 ([compare to v1.4.1](https://github.com/sth/objectbuilder/compare/v1.4.1...v1.4.2))
+
+* **Compatibility**: Downgrade dependencies for compatibility with node v8
+* **Bugfix**: Fix test setup
+
 <a name="v1.4.1"></a>
 ## [v1.4.1](https://github.com/sth/objectbuilder/tree/v1.4.1), 2021-01-14 ([compare to v1.4.0](https://github.com/sth/objectbuilder/compare/v1.4.0...v1.4.1))
 
