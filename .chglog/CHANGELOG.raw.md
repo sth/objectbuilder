@@ -1,8 +1,15 @@
 # Changelog
 
+<a name="v3.0.0"></a>
+## [v3.0.0](https://github.com/sth/objectbuilder/tree/v3.0.0), 2021-09-14 ([compare to v2.0.1](https://github.com/sth/objectbuilder/compare/v2.0.1...v3.0.0))
+
+* Remove support for node v10 ([73164bc](https://github.com/sth/objectbuilder/commit/73164bcf7e336ef786c1b2ac343ad2584bf55252))
+
 <a name="v2.0.1"></a>
 ## [v2.0.1](https://github.com/sth/objectbuilder/tree/v2.0.1), 2021-09-14 ([compare to v2.0.0](https://github.com/sth/objectbuilder/compare/v2.0.0...v2.0.1))
 
+* v2.0.1 ([40a087c](https://github.com/sth/objectbuilder/commit/40a087c5c4a674534dcb57c671b02b435753d8c4))
+* Update changelog ([6e92160](https://github.com/sth/objectbuilder/commit/6e92160eebbb4e8fe5ded7d9cddd41e9b82693d9))
 * Merge remote-tracking branch 'refs/remotes/origin/master' ([5c9070b](https://github.com/sth/objectbuilder/commit/5c9070beec69b51d61e708c668ba7257a6e2d877))
 * Allow mocha@^9.0.0 ([73796c0](https://github.com/sth/objectbuilder/commit/73796c0732e71221a815ec78389f3110abc3ebf1))
 * Upgrade packages ([1bfb1cc](https://github.com/sth/objectbuilder/commit/1bfb1cc90cfdf12609317d92b952a21235e55317))

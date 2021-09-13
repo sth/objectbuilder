@@ -1,5 +1,10 @@
 # Changelog
 
+<a name="v3.0.0"></a>
+## [v3.0.0](https://github.com/sth/objectbuilder/tree/v3.0.0), 2021-09-14 ([compare to v2.0.1](https://github.com/sth/objectbuilder/compare/v2.0.1...v3.0.0))
+
+* **Improvement (Breaking change)**: Upgrade dependencies (Now requires node >= v12) ([73164bc](https://github.com/sth/objectbuilder/commit/73164bcf7e336ef786c1b2ac343ad2584bf55252))
+
 <a name="v2.0.1"></a>
 ## [v2.0.1](https://github.com/sth/objectbuilder/tree/v2.0.1), 2021-09-14 ([compare to v2.0.0](https://github.com/sth/objectbuilder/compare/v2.0.0...v2.0.1))
 
