@@ -1,5 +1,12 @@
 # Changelog
 
+<a name="v2.0.1"></a>
+## [v2.0.1](https://github.com/sth/objectbuilder/tree/v2.0.1), 2021-09-14 ([compare to v2.0.0](https://github.com/sth/objectbuilder/compare/v2.0.0...v2.0.1))
+
+* **Improvement**: Upgrade dependencies
+* **Improvement**: Add testing for node v16 ([b8fa73e](https://github.com/sth/objectbuilder/commit/b8fa73e1f96aa13677882dce126cdd15e4b9650f))
+* **Improvement**: Ignore more files when packaging ([23970a1](https://github.com/sth/objectbuilder/commit/23970a13985e474a7e61f257faa5f5f0ab653fa7))
+
 <a name="v2.0.0"></a>
 ## [v2.0.0](https://github.com/sth/objectbuilder/tree/v2.0.0), 2021-01-15 ([compare to v1.4.2](https://github.com/sth/objectbuilder/compare/v1.4.2...v2.0.0))
 

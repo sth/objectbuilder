@@ -1,8 +1,19 @@
 # Changelog
 
-<a name="master"></a>
-## [master](https://github.com/sth/objectbuilder/tree/master), ([compare to v2.0.0](https://github.com/sth/objectbuilder/compare/v2.0.0...master))
+<a name="v2.0.1"></a>
+## [v2.0.1](https://github.com/sth/objectbuilder/tree/v2.0.1), 2021-09-14 ([compare to v2.0.0](https://github.com/sth/objectbuilder/compare/v2.0.0...v2.0.1))
 
+* Merge remote-tracking branch 'refs/remotes/origin/master' ([5c9070b](https://github.com/sth/objectbuilder/commit/5c9070beec69b51d61e708c668ba7257a6e2d877))
+* Allow mocha@^9.0.0 ([73796c0](https://github.com/sth/objectbuilder/commit/73796c0732e71221a815ec78389f3110abc3ebf1))
+* Upgrade packages ([1bfb1cc](https://github.com/sth/objectbuilder/commit/1bfb1cc90cfdf12609317d92b952a21235e55317))
+* Merge pull request [#5](https://github.com/sth/objectbuilder/issues/5) from sth/dependabot/npm_and_yarn/browserslist-4.16.6 ([80e95f9](https://github.com/sth/objectbuilder/commit/80e95f933d462779d317008a2660bc20670c30b0))
+* Bump browserslist from 4.16.1 to 4.16.6 ([c55ee21](https://github.com/sth/objectbuilder/commit/c55ee213d9907e4d24d6cb13cf6cc4ec4f99841b))
+* Merge pull request [#4](https://github.com/sth/objectbuilder/issues/4) from sth/dependabot/npm_and_yarn/lodash-4.17.21 ([2097b79](https://github.com/sth/objectbuilder/commit/2097b7951e2d7847c08893c4824c10f9d36e5d7c))
+* Bump lodash from 4.17.20 to 4.17.21 ([ea86a51](https://github.com/sth/objectbuilder/commit/ea86a51f33f4888ee4f306cac5698751be783567))
+* Add testing for node v16 ([b8fa73e](https://github.com/sth/objectbuilder/commit/b8fa73e1f96aa13677882dce126cdd15e4b9650f))
+* Ignore more files when packaging ([23970a1](https://github.com/sth/objectbuilder/commit/23970a13985e474a7e61f257faa5f5f0ab653fa7))
+* Update ignored files ([c029da2](https://github.com/sth/objectbuilder/commit/c029da25e9151c7e436ed5075658dc97204624c1))
+* Move changelog helpers ([3967ca3](https://github.com/sth/objectbuilder/commit/3967ca3f08d30c627bb1e641a793e44d6d53f291))
 * Better actions name ([6573c3e](https://github.com/sth/objectbuilder/commit/6573c3e35047ee81ef13ae3b17a564cd787994c3))
 
 <a name="v2.0.0"></a>
